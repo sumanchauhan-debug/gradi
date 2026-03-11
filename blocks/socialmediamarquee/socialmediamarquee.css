@@ -1,29 +1,49 @@
-.marquee-socialmedia {
-    overflow: hidden;
-    /* Hides the text when it leaves the box */
-    white-space: nowrap;
-    /* Keeps text in one long line */
-    background: #f0f0f0;
-    padding: 10px 0;
+/* 1. Main Container */
+.socialmediamarquee {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  padding: 15px 0;
 }
 
-.marquee-socailtext {
-    display: inline-block;
-    padding-left: 100%;
-    /* Starts the text off-screen to the right */
-    animation: scroll-left 10s linear infinite;
-    -webkit-text-stroke: 1px #888888;
+/* 2. Flex wrapper to align <p> tags in a row */
+.socialmediamarquee > div > div {
+  display: flex;
+  gap: 60px; /* Space between the text items */
+  width: max-content;
+  
+  /* ANIMATION SETTINGS */
+  animation: marquee-scroll 50s linear infinite;
+}
+
+/* 3. The Animation Logic */
+@keyframes marquee-scroll {
+  0% { 
+    /* Starts the text inside the view immediately */
+    transform: translateX(0); 
+  }
+  100% { 
+    /* Moves the text to the left */
+    transform: translateX(-100%); 
+  }
+}
+
+/* 4. Text Styling */
+.socialmediamarquee p {
+  display: inline-block;
+  margin: 0;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+      -webkit-text-stroke: 1px #888888;
     -webkit-text-fill-color: transparent;
     font-size: 100px;
-    margin: 0 40px;
+        -webkit-text-stroke-color: #050E14;
+    opacity: 1;
 }
 
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
+/* 5. Force NO STOP on hover */
+.socialmediamarquee:hover > div > div {
+  animation-play-state: running !important;
 }
