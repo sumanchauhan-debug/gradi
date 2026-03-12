@@ -150,4 +150,29 @@ export default async function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
   }
+
+
+let subtext = document.querySelectorAll('.carousel.hero-banner .carousel-slide .carousel-slide-content');
+subtext.forEach((content) => {
+  content.querySelectorAll('p').forEach((paragraph) => {
+    paragraph.classList.add('carousel-slide-subtext');
+  });
+
+const headings = document.querySelectorAll('.carousel.hero-banner .carousel-slide .carousel-slide-content h2');
+
+headings.forEach((h2) => {
+  if (h2.classList.contains('is-formatted')) return;
+  const parts = h2.innerHTML.split(/<br\s*\/?>/i);
+  if (parts.length >= 2) {
+    h2.innerHTML = `
+      <span class="carousel-title">${parts[0].trim()}</span>
+      <br>
+      <span class="carousel-subtitle">${parts[1].trim()}</span>
+    `;
+    h2.classList.add('is-formatted');
+  }
+});
+
+});
+
 }

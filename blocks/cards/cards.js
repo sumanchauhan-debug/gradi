@@ -14,4 +14,22 @@ export default function decorate(block) {
   });
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.replaceChildren(ul);
+
+
+const cardContainers = document.querySelectorAll('.cards.marketing-service');
+
+cardContainers.forEach((container) => {
+  const ul = container.querySelector('ul');
+  if (ul) {
+    ul.classList.add('marketing-cards-list');
+    const listItems = ul.querySelectorAll('li');
+    listItems.forEach((li, index) => {
+      li.classList.add('marketing-card-item');
+      li.classList.add(`card-item-${index + 1}`);
+    });
+  }
+});
+
+
+
 }

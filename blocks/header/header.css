@@ -269,6 +269,12 @@ header nav .nav-sections ul > li > ul > li {
     border-width: 2px 2px 0 0;
   }
   
+    header nav .nav-sections .nav-drop,
+    header nav .nav-sections li[aria-expanded='false'] {
+          display: flex;
+    justify-content: center;
+    align-items: center;
+    }
   header nav .nav-sections .nav-drop:first-child::after {
       color: #ea1d22;
     }

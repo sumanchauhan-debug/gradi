@@ -15,4 +15,66 @@ export default function decorate(block) {
       }
     });
   });
+
+const contentBlocks = document.querySelectorAll('.columns.marketing-plans div');
+
+contentBlocks.forEach((block) => {
+  const pTags = block.querySelectorAll('p');
+
+  pTags.forEach((p) => {
+    if (p.querySelector('picture')) {
+      p.classList.add('p-icon-wrap');
+    } 
+    
+    else if (p.querySelector('a')) {
+      p.classList.add('p-title-wrap');
+    } 
+  
+    else if (p.querySelector('code')) {
+      p.classList.add('p-description-wrap');
+    }
+  });
+});
+
+
+
+const statsContainer = document.querySelector('.columns.elementor-widget-container');
+const statItems = statsContainer.querySelectorAll(':scope > div');
+
+const runCounter = (el) => {
+    const h2 = el.querySelector('h2');
+    const fullText = h2.innerText; // e.g., "300 K"
+    const targetNum = parseInt(fullText.replace(/[^0-9]/g, '')); // Extracts 300
+    const suffix = fullText.replace(/[0-9]/g, ''); // Extracts " K"
+    
+    let current = 0;
+    const duration = 2000; // 2 seconds
+    const frameRate = 1000 / 60; // 60 fps
+    const totalFrames = Math.round(duration / frameRate);
+    const increment = targetNum / totalFrames;
+
+    const update = () => {
+        current += increment;
+        if (current < targetNum) {
+            h2.innerText = Math.floor(current) + suffix;
+            requestAnimationFrame(update);
+        } else {
+            h2.innerText = fullText; // Ensure it hits the final exact string
+        }
+    };
+    update();
+};
+
+// Start animation only when the section enters the screen
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            runCounter(entry.target);
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, { threshold: 0.7 });
+
+statItems.forEach(item => observer.observe(item));
+
 }
