@@ -48,10 +48,240 @@
 .tabs .tabs-panel {
   margin-top: -1px;
   padding: 24px;
-  border: 1px solid var(--dark-color);
+  /* border: 1px solid var(--dark-color); */
   overflow: auto;
 }
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.customer-support-sec.tabs-container .tabs-wrapper .tabs.block {
+    display: flex;
+    gap: 10px;
+}
+.customer-support-sec.tabs-container .tabs-wrapper .tabs.block .tabs-list {
+    flex-direction: column;
+}
+
+
+
+/* Main Layout Container */
+.customer-support-sec.tabs-container .tabs {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* 1. Sidebar Tabs List */
+.customer-support-sec.tabs-container .tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 250px; /* Fixed width for the buttons */
+}
+
+.customer-support-sec.tabs-container .tabs-tab {
+  background: #f4f6f9;
+  border: none;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* border-radius: 4px; */
+}
+
+.customer-support-sec.tabs-container .tabs-tab p {
+  margin: 0;
+  font-weight: 700;
+  color: #002e5b;
+  font-size: 16px;
+}
+
+/* Active Tab State */
+.customer-support-sec.tabs-container .tabs-tab[aria-selected="true"] {
+  background-color: #ef1d33;
+}
+
+.customer-support-sec.tabs-container .tabs-tab[aria-selected="true"] p {
+  color: #ffffff;
+}
+
+
+.customer-support-sec.tabs-container .tabs-panel {
+  display: flex; /* Side-by-side text and image */
+  gap: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+.customer-support-sec.tabs-container .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Text Side */
+.customer-support-sec.tabs-container .tabs-panel > div:first-child {
+  flex: 1;
+}
+
+.customer-support-sec.tabs-container .tabs-panel h4 {
+  color: #ef1d33;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.customer-support-sec.tabs-container .tabs-panel h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* "Read More" Button */
+.customer-support-sec.tabs-container .tabs-panel a[title="READ MORE"] {
+  display: inline-block;
+  background: #ef1d33;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 25px;
+}
+
+/* 3. Image Styling */
+.customer-support-sec.tabs-container .tabs-panel picture img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.customer-support-sec .tabs .tabs-list button {
+    padding: 15px 35px;
+    min-height: 95px;
+    background-color: #f1f2f3;
+    border: unset;
+}
+
+.customer-support-sec .tabs .tabs-list button[aria-selected='true'] {
+    background-color: #eb1933;
+}
+
+.customer-support-sec .tabs .tabs-list button:hover {
+    background-color: #EB1933;
+}
+
+.customer-support-sec .tabs .tabs-list button p{
+    font-weight: 700;
+    color: #022559;
+    font-size: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    align-items: center;
+    display: flex;
+}
+
+.customer-support-sec .tabs .tabs-list button[aria-selected='true'] p{
+    color: #fff;
+}
+
+.customer-support-sec .tabs .tabs-list button:hover p {
+    color: #fff;    
+}
+
+/* Progress Bar Styling */
+.customer-support-sec .tabs .stat-container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 450px; /* Aligns with text width */
+}
+
+.customer-support-sec .tabs .stat-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.customer-support-sec .tabs .stat-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.customer-support-sec .tabs .stat-percent {
+    color: #ef1d33; /* Gradi Red */
+    font-weight: 700;
+}
+
+.customer-support-sec .tabs .stat-bar-bg {
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ef1d33; /* Thin red border like Screenshot 6 */
+    padding: 1px;
+}
+
+.customer-support-sec .tabs .stat-bar-fill {
+    height: 100%;
+    background: #ef1d33;
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+/* Panel Layout Fix */
+.customer-support-sec.tabs-container .tabs-panel {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.customer-support-sec.tabs-container .tabs-panel > div:first-child {
+    flex: 1.2; /* Give text side more room */
+}
+
+.customer-support-sec.tabs-container .tabs-panel > div:last-child {
+    flex: 0.8;
+}
+
+/* Typography */
+.customer-support-sec.tabs-container .tabs-panel h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 15px 0;
+    color: #000;
+}
+
+.customer-support-sec.tabs-container .tabs-panel h4 {
+    color: #ef1d33;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Read More Button */
+.customer-support-sec.tabs-container .tabs-panel a[title="READ MORE"] {
+    display: inline-block;
+    background: #ef1d33;
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.customer-support-sec.tabs-container .tabs-panel picture img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }

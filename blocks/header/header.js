@@ -168,4 +168,31 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+const navBrandSection = document.querySelector('.section.columns-container.nav-brand');
+const topBarWrapper = navBrandSection?.querySelector('.columns-wrapper');
+
+if (navBrandSection && topBarWrapper) {
+    // Moves the wrapper entirely out of the section and places it before it
+    navBrandSection.insertAdjacentElement('beforebegin', topBarWrapper);
+}
+
+const navEle = document.querySelector('nav');
+const navBrandEle = navEle.querySelector('.nav-brand');
+const navSectionsEle = navEle.querySelector('.nav-sections');
+
+if (navBrandEle && navSectionsEle) {
+    // 1. Create the wrapper div
+    const mainNavWrapper = document.createElement('div');
+    mainNavWrapper.className = 'main-nav-container';
+
+    // 2. Insert the wrapper before the brand section
+    navBrandEle.insertAdjacentElement('beforebegin', mainNavWrapper);
+
+    // 3. Move both sections into the wrapper
+    mainNavWrapper.appendChild(navBrandEle);
+    mainNavWrapper.appendChild(navSectionsEle);
+}
+
+
 }

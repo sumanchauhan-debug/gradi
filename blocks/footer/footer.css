@@ -18,3 +18,194 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+
+
+/* Footer Main Container */
+.footer-wrapper {
+    background : url("https://themeloto.com/wps/gradi/wp-content/uploads/2024/11/gradi-slider.jpg");
+        background-size: cover;
+            background-position: center center;
+    /* background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('your-footer-bg.jpg'); */
+    color: #ffffff;
+    padding: 80px 0 50px 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-wrapper::before {
+      content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+        background-color: rgba(0, 0, 0, 0.73);   
+
+}
+
+/* Row Layout */
+.footer-wrapper .section.columns-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.footer-wrapper .columns-wrapper {
+    flex: 1;
+}
+
+/* Header Styling (Important Link, Quick Contact, etc.) */
+.footer-wrapper .columns p.footer-logo-text,
+.footer-wrapper .columns p.footer-nav-item-one,
+.footer-wrapper .columns p.footer-nav-item-two,
+.footer-wrapper .columns p.footer-nav-item-three
+ {
+    margin-bottom: 25px;
+    position: relative;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* The Red Underline Accent */
+.footer-wrapper .columns p.footer-nav-item-one::after ,
+.footer-wrapper .columns p.footer-nav-item-two::after ,
+.footer-wrapper .columns p.footer-nav-item-three::after 
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 40px;
+    height: 2px;
+    background-color: #ef1d33; /* Gradi Red */
+}
+
+/* List Styling */
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 15px;
+    color: #cccccc;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.footer ul li:hover {
+    color: #ef1d33;
+}
+
+/* Left Column Logo & Text */
+.footer-wrapper .footer-logo img {
+    margin-bottom: 20px;
+    display: block;
+        height: 40px;
+    width: 148px;
+}
+
+.footer-wrapper .footer-logo p {
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+/* Social Icons (First Column) */
+.footer-wrapper .footer-logo ul {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.footer-wrapper .footer-logo ul li {
+    width: 35px;
+    height: 35px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    /* color: transparent; */
+    padding: 5px;
+}
+
+/* Quick Contact Icons (Third Column) */
+.footer-wrapper .footer-nav-two ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-wrapper .section.columns-container {
+        flex-wrap: wrap;
+    }
+    .footer-wrapper .columns-wrapper {
+        flex: 0 0 45%;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-wrapper .columns-wrapper {
+        flex: 0 0 100%;
+    }
+}
+
+/* Base square styling from Gradi design */
+.footer-logo ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #000; /* Black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover state turns to Gradi Red */
+.social-icon:hover {
+  background-color: #ef1d33;
+}
+
+/* Pseudo-element setup */
+/* .social-icon::after {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+} */
+
+.footer-logo-text .social-icon svg{
+  color: #fff;
+}

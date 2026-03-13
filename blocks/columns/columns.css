@@ -131,7 +131,6 @@
   top: 0;
   left: auto;
   right: 20px;
-  z-index: 999;
   transition: .5s;
   font-size: 50px;
   font-weight: 700;

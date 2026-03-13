@@ -1,9 +1,43 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
   z-index: 2;
   position: fixed;
+}
+
+header .nav-wrapper nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+header .nav-wrapper nav .main-nav-container {
+  background-color: #fff;
+  display: flex;
+      width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+header .nav-wrapper nav .columns-wrapper {
+      padding: 10px 0;
+    background: #ea1d22;
+    width: 100%;
+}
+
+header .nav-wrapper nav .columns-wrapper .nav-top-bar >div>div{
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+      padding: 0 1.5rem;
+}
+
+header .nav-wrapper nav .columns-wrapper .nav-top-bar >div>div p{
+      font-size: 15px;
+    font-weight: 500;
+    color: #fff;
 }
 
 header nav {
@@ -157,7 +191,7 @@ header .nav-brand {
 header nav .nav-brand img {
   width: 128px;
   height: auto;
-  
+  padding: 0 1.5rem;
 }
 
 /* sections */
@@ -259,8 +293,8 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 2.5em;
-    right: 2px;
+    top: 2.2em;
+    right: 0;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
@@ -280,13 +314,19 @@ header nav .nav-sections ul > li > ul > li {
     }
 
   header nav .nav-sections > .default-content-wrapper >ul li:last-child p {
-    background-color: #ea1d22;
+   padding: 14px 30px 14px 30px;
+    margin-right: 10px;
+    background: #ea1d22;
+    border-color: #ea1d22;
     color: #fff;
-    display: block;
-    font-size: 18px;
-    margin-left: 20px;
+    /* border: 1px solid; */
+    display: inline-block;
     border-radius: 5px;
-            padding: 6px 15px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: .5s;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
@@ -312,15 +352,23 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > ul {
     display: block;
     position: absolute;
     left: -24px;
     width: 200px;
-    top: 150%;
+    top: 100%;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: #fff;
     white-space: initial;
+    z-index: 9999;
+    box-shadow: 0 0 30px rgb(0 0 0 / 9%);
+        transition: .5s;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul li a {
+    color: #000000;
+    padding: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {

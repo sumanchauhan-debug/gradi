@@ -44,4 +44,58 @@ export default async function decorate(block) {
   });
 
   block.prepend(tablist);
+
+
+  // 1. Select all the divs that have the class 'tabs-panel'
+const tabsPanels = document.querySelectorAll('.tabs-panel');
+
+if (tabsPanels.length > 0) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'main-tabs-panel';
+  const parent = tabsPanels[0].parentNode;
+
+  parent.insertBefore(wrapper, tabsPanels[0]);
+
+  tabsPanels.forEach(panel => {
+    wrapper.appendChild(panel);
+  });
+}
+
+
+document.querySelectorAll('.tabs-panel div:first-child p').forEach(p => {
+    const text = p.innerText;
+    // Regex to find "Label (Number)" format
+    const match = text.match(/(.*)\s\((\d+)\)/);
+
+    if (match) {
+        const label = match[1];
+        const percentage = match[2];
+
+        // Create the progress bar HTML structure
+        p.innerHTML = `
+            <div class="stat-container">
+                <div class="stat-info">
+                    <span class="stat-label">${label}</span>
+                    <span class="stat-percent">${percentage}%</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: 0%" data-target="${percentage}"></div>
+                </div>
+            </div>
+        `;
+    }
+});
+
+// Animation logic for the bars
+const animateBars = () => {
+    document.querySelectorAll('.stat-bar-fill').forEach(bar => {
+        const target = bar.getAttribute('data-target');
+        bar.style.width = target + '%';
+    });
+};
+
+// Trigger animation when the tab is switched or on load
+setTimeout(animateBars, 100);
+
+
 }
