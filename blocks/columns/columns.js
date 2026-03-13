@@ -65,16 +65,21 @@ const runCounter = (el) => {
     update();
 };
 
-// Start animation only when the section enters the screen
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             runCounter(entry.target);
-            observer.unobserve(entry.target); // Only animate once
+            observer.unobserve(entry.target); 
         }
     });
 }, { threshold: 0.7 });
 
 statItems.forEach(item => observer.observe(item));
+
+const professionalServicesContainer = document.querySelector('.professional-team .columns-wrapper .columns.block');
+
+professionalServicesContainer.querySelectorAll(':scope > div').forEach((div) => {
+  div.classList.add('professional-card-item');
+});
 
 }
